@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medicalapp/widgets/category_card.dart';
+import 'package:medicalapp/widgets/doctor_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -132,15 +133,54 @@ class _HomePageState extends State<HomePage> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: const [
-           CategoryCard(),
-           CategoryCard(),
-           CategoryCard(),
+                  CategoryCard(
+                    iconImagePath: 'assets/icons/tooth.png',
+                    categoryName: 'Dentist',
+                  ),
+                  CategoryCard(
+                    iconImagePath: 'assets/icons/surgeon.png',
+                    categoryName: 'Surgeon',
+                  ),
+                  CategoryCard(
+                    iconImagePath: 'assets/icons/pills.png',
+                    categoryName: 'Pharmacist',
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+
+            //doctor list
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Doctor list",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
+                  Text(
+                    "See all",
+                    style: TextStyle(color: Colors.grey[500], fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            Expanded(
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: const [
+                  DoctorCard()
                 ],
               ),
             ),
           ],
-
-          // doctor list
         ),
       ),
     );
