@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:medicalapp/widgets/category_card.dart';
 import 'package:medicalapp/widgets/doctor_card.dart';
 
@@ -60,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       height: 100,
                       width: 100,
-                      color: Colors.deepPurple[200],
+                      child: Lottie.network("https://assets8.lottiefiles.com/packages/lf20_fcxpjdtz.json"),
                     ),
                     const SizedBox(
                       width: 25,
@@ -120,7 +121,7 @@ class _HomePageState extends State<HomePage> {
                       border: InputBorder.none,
                       icon: const Icon(Icons.search),
                       hintText: "How can we help you?",
-                      hintStyle: TextStyle(color: Colors.grey[200])),
+                      hintStyle: TextStyle(color: Colors.grey[600])),
                 ),
               ),
             ),
