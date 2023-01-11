@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medicalapp/widgets/category_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -51,15 +52,14 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Container(
                 padding: EdgeInsets.all(20),
-                decoration: BoxDecoration(color: Colors.pink[100],
-                borderRadius: BorderRadius.circular(15)),
+                decoration: BoxDecoration(color: Colors.pink[100], borderRadius: BorderRadius.circular(15)),
                 child: Row(
                   children: [
                     //animation or cute pic
                     Container(
                       height: 100,
                       width: 100,
-                      color: Colors.deepPurple,
+                      color: Colors.deepPurple[200],
                     ),
                     const SizedBox(
                       width: 25,
@@ -77,16 +77,25 @@ class _HomePageState extends State<HomePage> {
                               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                             ),
                           ),
-                           Padding(
-                             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                             child: Text("Fill out your medical card right now",style: TextStyle(color: Colors.grey[800]),),
-                           ),
-                          const SizedBox(height: 15,),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Text(
+                              "Fill out your medical card right now",
+                              style: TextStyle(color: Colors.grey[800]),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
                           Container(
-                            padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-                            decoration: BoxDecoration(color: Colors.deepPurple[200],borderRadius: BorderRadius.circular(15)),
+                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                            decoration:
+                                BoxDecoration(color: Colors.deepPurple[200], borderRadius: BorderRadius.circular(12)),
                             child: const Center(
-                              child: Text("Get Started",style: TextStyle(color: Colors.white),),
+                              child: Text(
+                                "Get Started",
+                                style: TextStyle(color: Colors.white),
+                              ),
                             ),
                           ),
                         ],
@@ -96,13 +105,42 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-
+            const SizedBox(
+              height: 25,
+            ),
             // search bar
-
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(color: Colors.deepPurple[100], borderRadius: BorderRadius.circular(12)),
+                child: TextField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      icon: const Icon(Icons.search),
+                      hintText: "How can we help you?",
+                      hintStyle: TextStyle(color: Colors.grey[200])),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
             // horizontal listview -> categories: dentist, surgeon etc..
-
-            // doctor list
+            Container(
+              height: 80,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: const [
+           CategoryCard(),
+           CategoryCard(),
+           CategoryCard(),
+                ],
+              ),
+            ),
           ],
+
+          // doctor list
         ),
       ),
     );
