@@ -5,6 +5,8 @@ class DoctorCard extends StatelessWidget {
   final String rating;
   final String doctorName;
   final String doctorOccupation;
+  final VoidCallback onTap;
+  final bool isSelected;
 
   const DoctorCard({
     super.key,
@@ -12,15 +14,20 @@ class DoctorCard extends StatelessWidget {
     required this.rating,
     required this.doctorName,
     required this.doctorOccupation,
+    required this.onTap,
+    required this.isSelected,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 25),
+    return GestureDetector(
+      onTap: onTap,
       child: Container(
         padding: EdgeInsets.all(20),
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: Colors.deepPurple[100]),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          color: isSelected ? Colors.deepPurple[100] : Colors.white,
+        ),
         child: Column(
           children: [
             //picture of doctor

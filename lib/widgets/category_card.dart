@@ -2,37 +2,45 @@ import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
   final iconImagePath;
-  final String categoryName;
+  final bool isSelected;
+  final VoidCallback onTap;
+  final String buttonTabText;
 
   const CategoryCard({
     super.key,
     required this.iconImagePath,
-    required this.categoryName,
+    required this.isSelected,
+    required this.onTap,
+    required this.buttonTabText,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 25.0),
-      child: Container(
-        padding: EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: Colors.deepPurple[100],
-        ),
-        child: Row(
-          children: [
-            Image.asset(
-              iconImagePath,
-              height: 30,
+    return GestureDetector(
+      onTap: onTap,
+      child:Column(
+        children: [
+          Container(
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: isSelected ? Colors.deepPurple[100] : Colors.white,
             ),
-            const SizedBox(
-              width: 10,
+            child: Row(
+              children: [
+                Image.asset(
+                  iconImagePath,
+                  height: 30,
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Text(buttonTabText,style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold,color: isSelected? Colors.white : Colors.black),),
+              ],
             ),
-             Text(categoryName),
-          ],
-        ),
-      ),
+          ),
+        ],
+      )
     );
   }
 }
