@@ -175,8 +175,10 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               child: ListView(
                 scrollDirection: Axis.horizontal,
-                children: const [
-                  DoctorCard()
+                children:  const [
+                  DoctorCard(doctorImagePath: 'assets/images/doctor2.png', rating: '4.9', doctorName: 'Dr. Arlene McCoy', doctorOccupation: 'Therapist',),
+                  DoctorCard(doctorImagePath: 'assets/images/doctor1.png', rating: '4.2', doctorName: 'Dr. Albert Flores', doctorOccupation: 'Surgeon',),
+                  DoctorCard(doctorImagePath: 'assets/images/doctor3.png', rating: '5.0', doctorName: 'Dr. Sergei Suarez', doctorOccupation: 'Dentist',),
                 ],
               ),
             ),

@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 
 class DoctorCard extends StatelessWidget {
-  const DoctorCard({Key? key}) : super(key: key);
+  final String doctorImagePath;
+  final String rating;
+  final String doctorName;
+  final String doctorOccupation;
+
+  const DoctorCard({
+    super.key,
+    required this.doctorImagePath,
+    required this.rating,
+    required this.doctorName,
+    required this.doctorOccupation,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,32 +27,34 @@ class DoctorCard extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Image.asset(
-                'assets/images/doctor2.png',
+                doctorImagePath,
                 height: 100,
               ),
             ),
             //ratings out of 5
             Row(
-              children:  [
+              children: [
                 Icon(
                   Icons.star,
                   color: Colors.yellow[600],
                 ),
-                const Text('4.9'),
+                Text(rating),
               ],
             ),
             const SizedBox(
               height: 20,
             ),
             // dr name
-            const Text(
-              "Dr. Arlene Mccoy",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            Text(
+              doctorName,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
-            const SizedBox(height: 4,),
+            const SizedBox(
+              height: 4,
+            ),
             //occupation how many years
             Text(
-              "Therapist, 7 y.e",
+              "${doctorOccupation} 7 y.e.",
               style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.grey[700]),
             ),
           ],
