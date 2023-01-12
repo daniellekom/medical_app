@@ -185,12 +185,12 @@ class HomePage extends StatelessWidget {
                       flex: 3,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: viewModel.getDoctorsForSearchTermOnTab(viewModel.searchTerm).length,
+                        itemCount: viewModel.getDoctorsForSearchTermOnTab(viewModel.selectedTab).length,
                         itemBuilder: (context, index) {
-                          Doctor doctor = viewModel.getDoctorsForSearchTermOnTab(viewModel.searchTerm)[index];
+                          Doctor doctor = viewModel.getDoctorsForSearchTermOnTab(viewModel.selectedTab)[index];
                           return DoctorCard(
                             doctorImagePath: doctor.imagePath,
-                            rating: doctor.rating,
+                            rating: doctor.rating.toString(),
                             doctorName: doctor.doctorName,
                             doctorOccupation: doctor.doctorProfession,
                             isSelected: viewModel.selectedDoctor == doctor.doctorName,
