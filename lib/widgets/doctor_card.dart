@@ -31,11 +31,13 @@ class DoctorCard extends StatelessWidget {
         child: Column(
           children: [
             //picture of doctor
-            ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image.asset(
-                doctorImagePath,
-                height: 100,
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  doctorImagePath,
+                  height: 100,
+                ),
               ),
             ),
             //ratings out of 5

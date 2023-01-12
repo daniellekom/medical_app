@@ -16,6 +16,13 @@ class HomePage extends StatelessWidget {
         viewModelBuilder: () => HomeViewModel(),
         builder: (context, viewModel, child) => Scaffold(
               backgroundColor: Colors.grey[100],
+              bottomNavigationBar: BottomNavigationBar(
+                items: const [
+                  BottomNavigationBarItem(icon: Icon(Icons.home),label: ""),
+                  BottomNavigationBarItem(icon: Icon(Icons.message),label: ""),
+                  BottomNavigationBarItem(icon: Icon(Icons.notifications),label: ""),
+                ],
+              ),
               body: SafeArea(
                 child: Column(
                   children: [
@@ -47,7 +54,7 @@ class HomePage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 25,
                     ),
 
@@ -200,7 +207,8 @@ class HomePage extends StatelessWidget {
                           );
                         },
                       ),
-                    )
+                    ),
+
                   ],
                 ),
               ),

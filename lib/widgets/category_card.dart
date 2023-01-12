@@ -20,23 +20,25 @@ class CategoryCard extends StatelessWidget {
       onTap: onTap,
       child:Column(
         children: [
-          Container(
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: isSelected ? Colors.deepPurple[100] : Colors.white,
-            ),
-            child: Row(
-              children: [
-                Image.asset(
-                  iconImagePath,
-                  height: 30,
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Text(buttonTabText,style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold,color: isSelected? Colors.white : Colors.black),),
-              ],
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: isSelected ? Colors.deepPurple[100] : Colors.white,
+              ),
+              child: Row(
+                children: [
+                  Image.asset(
+                    iconImagePath,
+                    height: 30,
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(buttonTabText,style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold,color: isSelected? Colors.white : Colors.black),),
+                ],
+              ),
             ),
           ),
         ],
