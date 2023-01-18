@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:medicalapp/widgets/category_card.dart';
 import 'package:medicalapp/widgets/doctor_card.dart';
+import 'package:medicalapp/widgets/searchautocomplete/search_doctor_auto_complete.dart';
 import 'package:stacked/stacked.dart';
 
 import '../model/doctor.dart';
@@ -120,22 +121,15 @@ class HomePage extends StatelessWidget {
                       height: 25,
                     ),
                     // search bar
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                      child: Container(
-                        padding: EdgeInsets.all(10),
-                        decoration:
-                            BoxDecoration(color: Colors.deepPurple[100], borderRadius: BorderRadius.circular(12)),
-                        child: TextField(
-                          onChanged: (value) {
-                            viewModel.setSearchTerm(value);
-                          },
-                          decoration: InputDecoration(
-                              border: InputBorder.none,
-                              icon: const Icon(Icons.search),
-                              hintText: "Search for a Doctor",
-                              hintStyle: TextStyle(color: Colors.grey[600])),
-                        ),
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.symmetric(horizontal: 25),
+                      decoration: BoxDecoration(color: Colors.deepPurple[100], borderRadius: BorderRadius.circular(12)),
+                      child: SearchDoctorAutoComplete(
+                        doctors: viewModel.doctors,
+                        onClick: (doctor) {
+                          viewModel.setSearchTerm(doctor.doctorName);
+                        },
                       ),
                     ),
                     const SizedBox(
